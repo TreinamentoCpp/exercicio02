@@ -10,8 +10,7 @@
 
 #include "scheduler_types.h"
 
-void Scheduler_Insert(Scheduler_element_t &element);
-void Scheduler_Remove(Scheduler_element_t &element);
-Scheduler_element_t& Scheduler_GetFirst(void);
+void Scheduler_Schedule(Scheduler_element_t &element);
+void Scheduler_Execute();
 
 #endif /* SCHEDULER_H_ */

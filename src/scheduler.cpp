@@ -7,22 +7,17 @@
 #include "scheduler.h"
 #include <list>
 
-
-
 std::list<Scheduler_element_t> scheduler_elements;
 
-
-void Scheduler_Insert(Scheduler_element_t &element)
+void Scheduler_Schedule(Scheduler_element_t &element)
 {
 	scheduler_elements.push_back(element);
 }
 
-void Scheduler_Remove(Scheduler_element_t &element)
+void Scheduler_Execute()
 {
-	scheduler_elements.pop_front();
-}
-
-Scheduler_element_t& Scheduler_GetFirst(void)
-{
-	return scheduler_elements.front();
+	for (Scheduler_element_t &e : scheduler_elements) {
+		e.pFun(1);
+		scheduler_elements.pop_front();
+	}
 }

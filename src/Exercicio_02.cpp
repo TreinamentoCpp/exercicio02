@@ -8,7 +8,7 @@
 
 #include "scheduler.h"
 #include <iostream>
-using namespace std;
+using ::std::cout;
 
 void f1(int a)
 {
@@ -37,13 +37,12 @@ int main() {
 	Scheduler_element_t e3 {&f3, "f3"};
 	Scheduler_element_t e4 {&f4, "f4"};
 
-	Scheduler_Insert(e1);
-	Scheduler_Insert(e2);
-	Scheduler_Insert(e3);
-	Scheduler_Insert(e4);
+	Scheduler_Schedule(e2);
+	Scheduler_Schedule(e1);
+	Scheduler_Schedule(e3);
+	Scheduler_Schedule(e4);
 
-	for (const int &e : v) // access by const reference
-	        std::cout << i << ' ';
+	Scheduler_Execute();
 
 	return 0;
 }
